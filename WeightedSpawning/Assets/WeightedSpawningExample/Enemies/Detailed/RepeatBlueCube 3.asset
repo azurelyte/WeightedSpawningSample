@@ -1,0 +1,17 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fefdac988da3a945a21930eeca088e8, type: 3}
+  m_Name: RepeatBlueCube 3
+  m_EditorClassIdentifier: 
+  Value: 2
+  Weight: 1
+  Prefab: {fileID: 5181867172765623846, guid: ebc4094814a1e2e49bd9b70ce1839c17, type: 3}
