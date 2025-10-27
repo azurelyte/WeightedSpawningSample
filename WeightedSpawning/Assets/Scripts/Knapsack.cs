@@ -179,10 +179,10 @@ namespace WeightedSpawning
 		/// <param name="weights">The weights of each individual item.</param>
 		/// <param name="values">The value of each individual item.</param>
 		/// <param name="numSelected">The number of valid indexes contained within the <paramref name="selection"/></param>
-		/// <param name="selection">An array of indexes that maps to an item whose value is included in the result. If null or of insufficient size, this will reassigned.</param>
+		/// <param name="selection">An array of indexes that maps to an item whose value is included in the result. If null or of insufficient size, this will be reassigned.</param>
 		/// <param name="dp">
 		/// A staggered array, for the Dynamic Programming part of the algorithim, of at least the size of the number of (items + 1) by (capacity + 1).
-		/// If null or of insufficient size, this will reassigned.
+		/// If null or of insufficient size, this will be reassigned.
 		/// </param>
 		/// <returns>-1 if an error occurs. Otherwise, returns the cumulative value of all items that are contained in the result.</returns>
 		public static int Solve(int capacity, int numItems, int[] weights, int[] values, out int numSelected, ref int[] selection, ref int[][] dp)
