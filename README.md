@@ -63,23 +63,26 @@ class SpawnableGrinderEntry
 	public Object Prefab;
 }
 
-const int MAX_CAPACITY = 128;
-const int MAX_ITEMS = 128;
-// This is the solver in the project.
-static Knapsack.Solver<Object> Solver = new Knapsack.Solver<Object>(MAX_CAPACITY, MAX_ITEMS);
-
-// When the level loads, we give the solver our working set of grinders. Repeated calls won't require
-// rebuilding the solver's internal list of items.
-void OnLevelLoaded()
+class SomeWhereElse
 {
-	foreach (SpawnableGrinderEntry grinder in GetGrinderList()) Solver.Add(grinder.Weight, grinder.Value, grinder.Prefab);
-}
-
-// Spawn the wave by dynamically deriving capacity from difficulty, increasing as the match progresses. 
-void SpawnWave()
-{
-	int capacity = GetDifficulty() + PlayerCount() * GetDifficultyCoefficient() + GetCurrentWave() * GetDifficultyCoefficient();
-	m_Solver.Solve(capacity);
-	for (int i = 0; i < Solver.Length; i++) SpawnGrinderFrom(Solver[i]);
+    const int MAX_CAPACITY = 128;
+    const int MAX_ITEMS = 128;
+    // This is the solver in the project.
+    static Knapsack.Solver<Object> Solver = new Knapsack.Solver<Object>(MAX_CAPACITY, MAX_ITEMS);
+    
+    // When the level loads, we give the solver our working set of grinders. Repeated calls won't require
+    // rebuilding the solver's internal list of items.
+    void OnLevelLoaded()
+    {
+    	foreach (SpawnableGrinderEntry grinder in GetGrinderList()) Solver.Add(grinder.Weight, grinder.Value, grinder.Prefab);
+    }
+    
+    // Spawn the wave by dynamically deriving capacity from difficulty, increasing as the match progresses. 
+    void SpawnWave()
+    {
+    	int capacity = GetDifficulty() + PlayerCount() * GetDifficultyCoefficient() + GetCurrentWave() * GetDifficultyCoefficient   ();
+    	m_Solver.Solve(capacity);
+    	for (int i = 0; i < Solver.Length; i++) SpawnGrinderFrom(Solver[i]);
+    }
 }
 ```
