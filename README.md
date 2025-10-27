@@ -81,7 +81,7 @@ class SomewhereElse
 	void SpawnWave()
 	{
 		int capacity = GetDifficulty() + PlayerCount() * GetDifficultyCoefficient() + GetCurrentWave() * GetDifficultyCoefficient();
-		m_Solver.Solve(capacity);
+		Solver.Solve(capacity);
 		for (int i = 0; i < Solver.Length; i++) SpawnGrinderFrom(Solver[i]);
 	}
 }
